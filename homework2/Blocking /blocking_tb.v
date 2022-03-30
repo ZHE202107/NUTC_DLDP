@@ -36,3 +36,4 @@ module blocking_tb;
         .b_o(b_o)
     );
 endmodule
+

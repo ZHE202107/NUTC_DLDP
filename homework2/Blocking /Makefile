@@ -11,3 +11,5 @@ $(TEMP): blocking_tb.v blocking.v
 clean:
     -del $(TARGET)
     -del $(TEMP)
+    
+    

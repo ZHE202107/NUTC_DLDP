@@ -1,5 +1,6 @@
 // `include "blocking.v"
 `timescale 1ns/1ps
+
 module blocking_tb;
     reg clk;
     reg rst_n;
@@ -10,7 +11,7 @@ module blocking_tb;
     parameter OFFSET = 0;
     
     // clock process
-    inital begin
+    initial begin
         #OFFSET;
         forever begin
             clk = 1'b0;
@@ -19,15 +20,20 @@ module blocking_tb;
         end
     end
 
-    inital begin
+    initial begin
         rst_n = 1'b0;
         a_i = 1'b1;
         b_i = 1'b0;
         #5 rst_n = 1'b1;
         #100 $finish;
     end
+
+    initial begin
+        $dumpfile("blocking.vcd");
+        $dumpvars(0, blocking_tb);
+    end
     
-    blocking blocking_tb (
+    blocking blocking_tb(
         .clk(clk),
         .rst_n(rst_n),
         .a_i(a_i),

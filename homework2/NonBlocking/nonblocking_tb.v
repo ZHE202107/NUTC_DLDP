@@ -10,9 +10,11 @@ module blocking_tb;
     parameter OFFSET = 0;
     
     // clock process
-    initial begin
+    initial
+    begin
         #OFFSET;
-        forever begin
+        forever
+        begin
             clk = 1'b0;
             #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
             #(PERIOD*DUTY_CYCLE);
@@ -40,5 +42,5 @@ module blocking_tb;
         .a_o(a_o),
         .b_o(b_o)
     );
-        
+    
 endmodule;

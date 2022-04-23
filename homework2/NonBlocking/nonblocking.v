@@ -4,13 +4,14 @@ module nonblocking (
     a_i,
     b_i,
     a_o,
-    b_o);
+    b_o
+);
     
     input clk;
     input rst_n;
     input a_i, b_i;
-    output a_0, b_o;
-    
+    output a_o, b_o;
+
     reg a, b;
     assign a_o = a;
     assign b_o = b;
@@ -22,7 +23,7 @@ module nonblocking (
         end
         else begin
             a <= b;
-            b <= a;
+            b = a;
         end
     end
 endmodule
